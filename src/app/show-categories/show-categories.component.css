@@ -1,0 +1,12 @@
+.main{
+    display: flex;
+}
+.name{
+    flex: 1;
+}
+.update{
+    padding: 5px
+}
+.delete{
+    padding: 5px
+}

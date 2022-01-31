@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="main">
+        <div *ngIf="showMsg" class="alert alert-danger" role="alert">
+            {{showMsg}}
+          </div>
+        <div style="padding: 30px;" class="card" >
+            <h5 style="text-align: center;" class="card-title">Add New Category</h5>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Category Name</label>
+                    <input [(ngModel)] = "name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="clothes">
+                </div>    
+                <button (click)="addCategory()" type="button" class="btn btn-primary">Add </button>
+                <br>
+                
+            </div>
+          </div>
+        
+    </div>
+</div>

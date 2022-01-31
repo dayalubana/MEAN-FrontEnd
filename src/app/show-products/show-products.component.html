@@ -1,0 +1,36 @@
+
+<div style="display: flex;justify-content: center">
+
+    <div  style="width: 70%;padding: 50px;">
+        <div class="card-body">
+            <div style="display:flex;justify-content: space-between;">
+                <div><h5 class="card-title mb-4">Products</h5></div>
+                <div> <button routerLink="/addproduct" type="button" class="btn btn-success">Add Product</button></div>
+            </div>
+            <br><br>
+            <div *ngFor="let product of products" class="list-group">
+
+                <a  class="list-group-item list-group-item-action">
+                    <div class="main">
+                        <div class="img">
+                            <img style="width: 100%;height: 100%;" [src]="product.imagePath" alt="">
+                        </div>
+                        <div class="content">
+                            <div style="line-height: 1.6;">{{product.title | uppercase}}</div>
+                            <div style="line-height: 1.6;">{{product.content | uppercase}}</div>
+                            <div style="line-height: 1.6;">Price : Rs. {{product.price | uppercase}}</div>
+                        </div>
+                        <div class="update">
+                            <button routerLink="/updateproduct/{{product._id}}" type="button" class="btn btn-primary">Update</button>
+                        </div>
+                        <div class="delete">
+                            <button (click)="removeProduct(product)" type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+      </div>
+
+</div>
+

@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+}
+.content{
+    flex: 1;
+    margin-left: 20px;
+}
+.img{
+    height: 200px;
+    width: 200px;
+}
+.update{
+    padding: 5px
+}
+.delete{
+    padding: 5px
+}

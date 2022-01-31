@@ -1,0 +1,31 @@
+
+<div style="display: flex;justify-content: center">
+
+        <div  style="width: 70%;padding: 50px;">
+            <div class="card-body">
+                <div style="display:flex;justify-content: space-between;">
+                    <div><h5 class="card-title mb-4">Categories</h5></div>
+                    <div> <button routerLink="/addcategory" type="button" class="btn btn-success">Add Category</button></div>
+                </div>
+                <br><br>
+                <div *ngFor="let category of categories" class="list-group">
+
+                    <a  class="list-group-item list-group-item-action">
+                        <div class="main">
+                            <div class="name">
+                                {{category.name | uppercase}}
+                            </div>
+                            <div class="update">
+                                <button routerLink="/updatecategory/{{category._id}}/{{category.name}}" type="button" class="btn btn-primary">Update</button>
+                            </div>
+                            <div class="delete">
+                                <button (click)="removeCategory(category)" type="button" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+          </div>
+    
+</div>
+

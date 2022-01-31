@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="main">
+        <div *ngIf="showMsg" class="alert alert-danger" role="alert">
+            {{showMsg}}
+          </div>
+        <div style="padding: 30px;" class="card" >
+            <h5 style="text-align: center;" class="card-title">Update Product</h5>
+            <div class="card-body" *ngIf = "product.title!=''">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Product Name</label>
+                    <input [(ngModel)] = "product.title"  type="text" class="form-control" id="exampleFormControlInput1" [value]="product.title" >
+                </div>    
+                <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">Product description</label>
+                    <textarea [(ngModel)] = "product.content"  class="form-control" id="exampleFormControlInput2"  [value]="product.content"></textarea>
+                </div>  
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Product Price</label>
+                    <input [(ngModel)] = "product.price"  type="number" class="form-control" id="exampleFormControlInput1"  [value]="product.price">
+                </div>  
+                <div class="mb-3">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Category
+                        </button>
+                        <span><input disabled *ngIf='product.category' [value]="product.category"  type="text" class="form-control" id="exampleFormControlInput1" ></span>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li *ngFor="let category of categories"><a (click)="selectedCategory(category)" class="dropdown-item">{{category.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Product Image</label>
+                    <input #filepicker (change) = "PickedImage($event)" type="file" class="form-control" id="exampleFormControlInput1" >
+                </div>      
+                <div class = "image-preview" *ngIf = "product.imagePath">  
+                    <img  [src]= "product.imagePath">
+                </div>  
+                <br>
+                <button (click)="updateProduct()"  type="button" class="btn btn-primary">Update Product</button>
+                <br>
+            </div>
+          </div>
+    </div>
+</div>
